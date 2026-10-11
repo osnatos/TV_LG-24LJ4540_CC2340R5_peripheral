@@ -126,7 +126,7 @@ void App_StackInitDoneHandler(gapDeviceInitDoneEvent_t *deviceInitDoneData)
     bStatus_t status = SUCCESS;
 
     // Menu
-    Menu_start();
+//    Menu_start();
 
     // Print the device ID address
     MenuModule_printf(APP_MENU_DEVICE_ADDRESS, 0, "BLE ID Address: "

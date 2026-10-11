@@ -120,7 +120,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="app/app_ms_oad_peripheral.c|app/app_ms_oad_pairing.c|app/app_broadcaster.c|app/app_observer.c|app/app_menu.c|app/app_central.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="common/MenuModule/menu_module.c|app/app_ms_oad_peripheral.c|app/app_ms_oad_pairing.c|app/app_broadcaster.c|app/app_observer.c|app/app_menu.c|app/app_central.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
