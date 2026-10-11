@@ -1,0 +1,19 @@
+# Папки сборки и компиляции
+[Dd]ebug/
+[Rr]elease/
+
+# Временные файлы сборщика SysConfig
+syscfg/
+
+# Локальные файлы настроек Code Composer Studio
+.settings/
+.analytics/
+*.launches
+
+# Файлы сборки компилятора
+*.obj
+*.d
+*.out
+*.map
+*.bin
+*.hex
