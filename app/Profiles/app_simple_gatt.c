@@ -131,7 +131,7 @@ static void SimpleGatt_changeCB( uint8_t paramId )
 
         if (Char1_Value[2] == 100)
         {
-           send_TV_LG_24LJ4540_Command( Char1_Value[0], Char1_Value[1] );
+ //          send_TV_LG_24LJ4540_Command( Char1_Value[0], Char1_Value[1] );
         }
 
 //        send_TV_LG_24LJ4540_Command( Char1_Value[0], Char1_Value[1]); // Moved to simple_gatt_profile.c

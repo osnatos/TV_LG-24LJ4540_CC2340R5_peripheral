@@ -622,10 +622,12 @@ bStatus_t SimpleGattProfile_writeAttrCB( uint16_t connHandle,
  //                       ClockP_usleep(20000);
  //                       GAP_TerminateLinkReq(ConnHandle, 0x13);
                      }
-                 }
-                 else {
 
-//                 Power_setConstraint(PowerLPF3_DISALLOW_STANDBY);
+ //                   Power_releaseConstraint(PowerLPF3_DISALLOW_STANDBY); // Release STANDBY MODE
+                 }
+                 else { // any two-byte command, except for commands that change the advertising period.
+
+ //                Power_setConstraint(PowerLPF3_DISALLOW_STANDBY); // DISABLE STANDBY MODE
 
                    // MODE 1: Short Click (Single Shot)
                   // We issue a basic frame + 1 repeat for reliable reception by the TV
@@ -665,10 +667,10 @@ bStatus_t SimpleGattProfile_writeAttrCB( uint16_t connHandle,
                   if ( marker > 0 )
                   {
                       // MODE 2: Long Click (Hold Start)
-                      // We record a protective counter (for example, 30 repetitions)
+                      // We record a protective counter (for example, 100 repetitions)
                       RepeatCounter = marker;
 
-          //            send_TV_LG_24LJ4540_Command(target_address, target_command);  // Natan
+                      send_TV_LG_24LJ4540_Command(target_address, target_command);  // Initiating IR generation
 
                       status = SUCCESS;
 

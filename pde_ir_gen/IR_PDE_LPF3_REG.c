@@ -197,7 +197,7 @@ PDEIRLPF3_Handle PDEIRLPF3_open(uint8_t index, PDEIRLPF3_Params *pParams)
     modulatorObject->isOpen = 1;
     HwiP_restore(key);
 
-    Power_setConstraint(PowerLPF3_DISALLOW_STANDBY);
+//    Power_setConstraint(PowerLPF3_DISALLOW_STANDBY);  //Natan
 
     Power_setDependency(PowerLPF3_PERIPH_LGPT0);
     Power_setDependency(PowerLPF3_PERIPH_LGPT1);
@@ -217,7 +217,7 @@ PDEIRLPF3_Handle PDEIRLPF3_open(uint8_t index, PDEIRLPF3_Params *pParams)
     object->state = PDEIRLPF3_STATE_IDLE;
 
     if (initHw(handle, &params) != PDEIRLPF3_STATUS_OK)
-        while (1); // error
+        while (1); // error    // Natan
 
     object->frameInterval_tick = TICK_FROM_USEC(params.frameInterval_usec);
 
@@ -647,12 +647,12 @@ static void PDEIRLPF3_modulator_callback()
             pdeIrObj->state = PDEIRLPF3_STATE_IDLE;
             set_DC2DC_ENA(false);
             PDEIRLPF3_stop(pdeIrHandle);
-         //   PDEIRLPF3_close(pdeIrHandle);
+//            PDEIRLPF3_close(pdeIrHandle);
             pdeIrHandle = 0;
 
 
             HWREG(0x40080000 + 0x20) |= 0x1; // Turn the radio beats back on
-  //          Power_releaseConstraint(PowerLPF3_DISALLOW_STANDBY);
+ //           Power_releaseConstraint(PowerLPF3_DISALLOW_STANDBY); // Release STANDBY MODE
             void changeAdvIntervalRuntime(uint32_t intervalMs);
     //        setAdvIntervalTicks(210);  // 210ms
 
